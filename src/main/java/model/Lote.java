@@ -29,10 +29,6 @@ public class Lote {
 		this.idLote = id;
 	}
 	
-	public LocalDate getDataValidade() {
-		return dataValidade;
-	}
-
 	public LocalDateTime getDataCompra() {
 		return dataCompra;
 	}
@@ -41,6 +37,11 @@ public class Lote {
 		LocalDateTime agora = LocalDateTime.now();
 		if (agora.compareTo(dataCompra) >= 0)
 			this.dataCompra = dataCompra;
+	}
+
+	
+	public LocalDate getDataValidade() {
+		return dataValidade;
 	}
 
 	public void setDataValidade(LocalDate dataValidade) {

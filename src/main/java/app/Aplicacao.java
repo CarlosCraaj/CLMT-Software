@@ -12,7 +12,7 @@ public class Aplicacao {
 	private static LoteService loteService = new LoteService();
 	
     public static void main(String[] args) {
-        port(6789);
+        port(5432);
         
         staticFiles.location("/public");
         

@@ -10,6 +10,8 @@ public class Aplicacao {
 	
 	// private static ProdutoService produtoService = new ProdutoService();
 	private static LoteService loteService = new LoteService();
+	private static ProductService productService = new ProductService();
+	private static UsersService userService = new UsersService();
 	
     public static void main(String[] args) {
         port(5432);

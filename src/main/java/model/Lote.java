@@ -16,16 +16,16 @@ public class Lote {
 	}
 
 	public Lote(int id, LocalDateTime compra, LocalDate v) {
-		setIdLote(id);
+		setID(id);
 		setDataCompra(compra);
 		setDataValidade(v);
 	}		
 	
-	public int getIDLote() {
+	public int getID() {
 		return idLote;
 	}
 
-	public void setIdLote(int id) {
+	public void setID(int id) {
 		this.idLote = id;
 	}
 	
@@ -61,6 +61,6 @@ public class Lote {
 	
 	@Override
 	public boolean equals(Object obj) {
-		return (this.getIDLote() == ((Lote) obj).getIDLote());
+		return (this.getID() == ((Lote) obj).getID());
 	}	
 }

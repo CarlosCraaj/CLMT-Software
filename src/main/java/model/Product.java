@@ -5,6 +5,8 @@ public class Product {
 	private int idProduct;
 	private int quantidadeComprada;
 	private String nomeProduto;
+	private Users id_user;
+	private Lote id_lote;
 	
 	public Product() {
 		idProduct = -1;
@@ -12,17 +14,17 @@ public class Product {
         nomeProduto = "";
     }
 
-	public Product(int id, int qntdComprada, String nomeProduto) {
-		setId(id);
+	public Product(int id, int qntdComprada, String nomeProduto, int idlote, int iduser) {
+		setID(id);
         setQuantidadeComprada(qntdComprada);
         setNomeProduto(nomeProduto);
-	}		
+	}
 	
-	public int getIDProduct() {
+	public int getID() {
 		return idProduct;
 	}
 
-	public void setId(int id) {
+	public void setID(int id) {
 		this.idProduct = id;
 	}
 
@@ -44,6 +46,22 @@ public class Product {
 		this.nomeProduto = nomeProduto;
 	}
 
+	public void setId_user(Users user) {
+		this.id_user = user;
+	}
+
+	public Users getId_user() {
+		return id_user;
+	}
+
+	public void setId_lote(Lote lote) {
+		this.id_lote = lote;
+	}
+
+	public Lote getId_lote() {
+		return id_lote;
+	}
+
 
 	@Override
 	public String toString() {
@@ -52,6 +70,6 @@ public class Product {
 	
 	@Override
 	public boolean equals(Object obj) {
-		return (this.getIDProduct() == ((Product) obj).getIDProduct());
+		return (this.getID() == ((Product) obj).getID());
 	}	
 }

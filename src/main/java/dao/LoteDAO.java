@@ -108,7 +108,7 @@ public class LoteDAO extends DAO {
 		try {  
 			String sql = "UPDATE lote SET "
 					   + "datafabricacao = ?, " 
-					   + "datavalidade = ? WHERE id = " + lote.getIDLote();
+					   + "datavalidade = ? WHERE id = " + lote.getID();
 			PreparedStatement st = conexao.prepareStatement(sql);
 		    st.setTimestamp(1, Timestamp.valueOf(lote.getDataCompra()));
 			st.setDate(2, Date.valueOf(lote.getDataValidade()));

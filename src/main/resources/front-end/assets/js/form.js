@@ -7,11 +7,12 @@ window.onload = () =>
       const formProps = Object.fromEntries(formData);
       console.log('formData', formData);
       console.log('formProps', formProps);
+      sendAnswer(formProps);
    });
 
-async function sendAnswer(user_id, data) {
-   let url = 'locals/user_register/';
-   let urlDev = 'localhost:3000/user_register';
+async function sendAnswer(data) {
+   let url = '';
+   let urlDev = 'localhost:3000/user/create';
    await fetch(urlDev, {
       method: 'POST',
       headers: '',

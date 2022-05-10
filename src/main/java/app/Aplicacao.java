@@ -16,6 +16,10 @@ public class Aplicacao {
         
         staticFiles.location("/public");
         
+        post("/user/create", (request, response) -> UsersService.inserirUsuario(request, response));
+
+        get("/user/get/:username", (request, response) -> UsersService.get(request, response));
+
         post("/produto/insert", (request, response) -> produtoService.insert(request, response));
 
         get("/produto/:id", (request, response) -> produtoService.get(request, response));

@@ -8,3 +8,19 @@ window.onload = () =>
       console.log('formData', formData);
       console.log('formProps', formProps);
    });
+
+async function sendAnswer(user_id, data) {
+   let url = 'locals/user_register/';
+   let urlDev = 'localhost:3000/user_register';
+   await fetch(urlDev, {
+      method: 'POST',
+      headers: '',
+      body: data,
+   });
+   try {
+      console.log('sucesso!');
+      return response;
+   } catch (error) {
+      console.log('erro na resposta:', error);
+   }
+}

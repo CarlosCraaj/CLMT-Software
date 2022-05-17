@@ -29,6 +29,5 @@ public class Aplicacao {
            
         get("/produto/delete/:id", (request, response) -> productService.remove(request, response));
 
-             
     }
 }

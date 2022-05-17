@@ -41,12 +41,12 @@ public class ProductService {
     	    response.header("Content-Encoding", "UTF-8");
 
             return "<product>\n" + 
-            		"\t<id_product>" + product.getID() + "</id>\n" +
-            		"\t<quantidade_comprada>" + product.getQuantidadeComprada() + "</descricao>\n" +
-            		"\t<nome_produto>" + product.getNomeProduto() + "</preco>\n" +
-            		"\t<id_lote>" + product.getId_lote().getID() + "</quantidade>\n" +
-            		"\t<id_user>" + product.getId_user().getID() + "</fabricacao>\n" +
-            		"</produto>\n";
+            		"\t<id_product>" + product.getID() + "</id_product>\n" +
+            		"\t<quantidade_comprada>" + product.getQuantidadeComprada() + "</quantidade_comprada>\n" +
+            		"\t<nome_produto>" + product.getNomeProduto() + "</nome_produto>\n" +
+            		"\t<id_lote>" + product.getId_lote().getID() + "</id_lote>\n" +
+            		"\t<id_user>" + product.getId_user().getID() + "</id_user>\n" +
+            		"</product>\n";
         } else {
             response.status(404); // 404 Not found
             return "Produto " + id + " não encontrado.";

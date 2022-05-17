@@ -6,8 +6,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-// import java.sql.Timestamp;
-// import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,13 +21,6 @@ public class UsersDAO extends DAO {
 		close();
 	}
 	
-
-    /**
-        id_users
-        email
-        password
-        username
-     */
 	
 	public boolean insert(Users user) {
 		boolean status = false;

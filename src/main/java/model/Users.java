@@ -14,11 +14,11 @@ public class Users {
 		username = "";
 	}
 
-	public Users(int id, String email, String senha, String nome) {
+	public Users(int id, String email, String password, String username) {
 		setId(id);
 		setEmail(email);
-		setPassword(senha);
-		setUsername(nome);
+		setPassword(password);
+		setUsername(username);
 	}		
 	
 	public int getID() {

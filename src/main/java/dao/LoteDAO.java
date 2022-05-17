@@ -28,7 +28,7 @@ public class LoteDAO extends DAO {
 		boolean status = false;
 		try {
 			String sql = "INSERT INTO lote (data_compra, validade) "
-		               + "VALUES (" + "?, ?);";
+		               + "VALUES (?, ?);";
 			PreparedStatement st = conexao.prepareStatement(sql);
 		    st.setTimestamp(1, Timestamp.valueOf(lote.getDataCompra()));
 			st.setDate(2, Date.valueOf(lote.getDataValidade()));

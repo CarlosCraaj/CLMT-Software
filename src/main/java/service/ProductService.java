@@ -1,6 +1,8 @@
 package service;
 
 import dao.ProductDAO;
+import dao.LoteDAO;
+import dao.UsersDAO;
 import model.Product;
 import spark.Request;
 import spark.Response;
@@ -9,6 +11,8 @@ import spark.Response;
 public class ProductService {
 
     private ProductDAO productDAO = new ProductDAO();
+    private LoteDAO loteDAO = new LoteDAO();
+	private UsersDAO usersDAO = new UsersDAO();
 
 	public Object insert(Request request, Response response) {
         int quantidade_comprada = Integer.parseInt(request.queryParams("quantidade_comprada"));
@@ -56,15 +60,15 @@ public class ProductService {
     
 
 	public Object update(Request request, Response response) {
-        int id = Integer.parseInt(request.params(":id"));
+        int id = Integer.parseInt(request.params(":id_product"));
 		Product product = productDAO.get(id);
         String resp = "";
 
         if (product != null) {
         	product.setQuantidadeComprada(Integer.parseInt(request.queryParams("quantidade_comprada")));
             product.setNomeProduto(request.queryParams("nome_produto"));
-            // product.setId_lote(); -- Ligeirinho
-            // product.setId_user(); -- Ligeirinho
+            product.setId_lote( loteDAO.get(Integer.parseInt(request.queryParams("id_lote"))) );
+            product.setId_user( usersDAO.get(Integer.parseInt(request.queryParams("id_user"))) );
 
         	productDAO.update(product);
             response.status(200);

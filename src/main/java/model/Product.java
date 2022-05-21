@@ -1,5 +1,8 @@
 package model;
 
+import dao.LoteDAO;
+import dao.UsersDAO;
+
 
 public class Product {
 	private int idProduct;
@@ -7,6 +10,9 @@ public class Product {
 	private String nomeProduto;
 	private Users id_user;
 	private Lote id_lote;
+
+	private LoteDAO loteDAO = new LoteDAO();
+	private UsersDAO usersDAO = new UsersDAO();
 	
 	public Product() {
 		idProduct = -1;
@@ -18,6 +24,8 @@ public class Product {
 		setID(id);
         setQuantidadeComprada(qntdComprada);
         setNomeProduto(nomeProduto);
+		setId_lote(loteDAO.get(idlote));
+		setId_user(usersDAO.get(iduser));
 	}
 	
 	public int getID() {

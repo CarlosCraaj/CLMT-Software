@@ -47,7 +47,7 @@ public class LoteDAO extends DAO {
 		
 		try {
 			Statement st = conexao.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
-			String sql = "SELECT * FROM lote WHERE id="+id;
+			String sql = "SELECT * FROM lote WHERE id_lote="+id;
 			ResultSet rs = st.executeQuery(sql);	
 	        if(rs.next()){            
 	        	 lote = new Lote(rs.getInt("id_lote"),
@@ -108,7 +108,7 @@ public class LoteDAO extends DAO {
 		try {  
 			String sql = "UPDATE lote SET "
 					   + "datafabricacao = ?, " 
-					   + "datavalidade = ? WHERE id = " + lote.getID();
+					   + "datavalidade = ? WHERE id_lote = " + lote.getID();
 			PreparedStatement st = conexao.prepareStatement(sql);
 		    st.setTimestamp(1, Timestamp.valueOf(lote.getDataCompra()));
 			st.setDate(2, Date.valueOf(lote.getDataValidade()));
@@ -126,7 +126,7 @@ public class LoteDAO extends DAO {
 		boolean status = false;
 		try {  
 			Statement st = conexao.createStatement();
-			st.executeUpdate("DELETE FROM lote WHERE id = " + id);
+			st.executeUpdate("DELETE FROM lote WHERE id_lote = " + id);
 			st.close();
 			status = true;
 		} catch (SQLException u) {  

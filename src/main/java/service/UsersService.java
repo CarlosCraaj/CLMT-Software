@@ -41,9 +41,32 @@ public class UsersService {
 
             return "<users>\n" + 
             		"\t<id_users>" + users.getID() + "</id_users>\n" +
-            		"\t<quantidade_comprada>" + users.getEmail() + "</quantidade_comprada>\n" +
-            		"\t<nome_produto>" + users.getPassword() + "</nome_produto>\n" +
-            		"\t<id_lote>" + users.getUsername() + "</id_lote>\n" +
+            		"\t<email>" + users.getEmail() + "</email>\n" +
+            		"\t<password>" + users.getPassword() + "</password>\n" +
+            		"\t<username>" + users.getUsername() + "</username>\n" +
+            		"</users>\n";
+        } else {
+            response.status(404); // 404 Not found
+            return "Usuário " + id + " não encontrado.";
+        }
+
+	}
+
+    public Object login(Request request, Response response) {
+        String email = request.queryParams("email");
+        String password = request.queryParams("password");
+		
+		Users users = (Users) usersDAO.login(email, password);
+		
+		if (users != null) {
+    	    response.header("Content-Type", "application/xml");
+    	    response.header("Content-Encoding", "UTF-8");
+
+            return "<users>\n" + 
+            		// "\t<id_users>" + users.getID() + "</id_users>\n" +
+            		"\t<email>" + users.getEmail() + "</email>\n" +
+            		"\t<password>" + users.getPassword() + "</password>\n" +
+            		// "\t<username>" + users.getUsername() + "</username>\n" +
             		"</users>\n";
         } else {
             response.status(404); // 404 Not found

@@ -54,21 +54,18 @@ public class UsersDAO extends DAO {
 		return user;
 	}
 
-	public Users login(Users userLogin) {
+	public Users login(String email, String password) {
 		Users user = null;
 
 		try {
 			Statement st = conexao.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-			String sql = "SELECT email, username from users as u where u.email = '" + userLogin.getEmail()
-					+ "' and u.password ='" + userLogin.getPassword() + "'";
+			String sql = "SELECT email, username from users as u where u.email = '" + email
+					+ "' and u.password ='" + password + "'";
 			ResultSet rs = st.executeQuery(sql);
-			// if (rs.next()) {
-			// user = new Users(rs.getInt("id_users"), //não vai precisar MAS vai precisar
-			// de retornar o user com email e username
-			// rs.getString("email"),
-			// rs.getString("password"),//não vai precisar
-			// rs.getString("username"));
-			// }
+			if (rs.next()) {
+				user = new Users(-1, rs.getString("email"),
+				rs.getString("password"),"");
+			}
 			st.close();
 		} catch (Exception e) {
 			System.err.println(e.getMessage());
